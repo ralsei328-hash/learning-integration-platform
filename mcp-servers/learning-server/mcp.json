@@ -1,0 +1,94 @@
+{
+  "name": "learning-server",
+  "version": "1.0.0",
+  "description": "MCP server for learning workflow management",
+  "command": "node",
+  "args": ["index.js"],
+  "env": {},
+  "tools": [
+    {
+      "name": "add_course",
+      "description": "Add a new course to the learning platform",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "title": { "type": "string", "description": "Course title" },
+          "description": { "type": "string", "description": "Course description" },
+          "provider": { "type": "string", "description": "Course provider" },
+          "url": { "type": "string", "description": "Course URL" },
+          "category": { "type": "string", "description": "Course category" },
+          "tags": { "type": "array", "description": "Course tags" }
+        },
+        "required": ["title"]
+      }
+    },
+    {
+      "name": "update_progress",
+      "description": "Update learning progress for a course",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "courseId": { "type": "string", "description": "Course ID" },
+          "completedLessons": { "type": "array", "description": "Completed lesson IDs" },
+          "totalLessons": { "type": "number", "description": "Total number of lessons" },
+          "percentage": { "type": "number", "description": "Completion percentage" },
+          "notes": { "type": "string", "description": "Progress notes" }
+        },
+        "required": ["courseId"]
+      }
+    },
+    {
+      "name": "add_resource",
+      "description": "Add a learning resource",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "title": { "type": "string", "description": "Resource title" },
+          "type": { "type": "string", "description": "Resource type" },
+          "url": { "type": "string", "description": "Resource URL" },
+          "description": { "type": "string", "description": "Resource description" },
+          "category": { "type": "string", "description": "Resource category" },
+          "tags": { "type": "array", "description": "Resource tags" },
+          "courseId": { "type": "string", "description": "Associated course ID" }
+        },
+        "required": ["title"]
+      }
+    },
+    {
+      "name": "sync_learning_data",
+      "description": "Sync learning data with external systems",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "courses": { "type": "array", "description": "Courses to sync" },
+          "progress": { "type": "array", "description": "Progress records to sync" },
+          "resources": { "type": "array", "description": "Resources to sync" }
+        },
+        "required": []
+      }
+    },
+    {
+      "name": "get_courses",
+      "description": "Get all courses",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "category": { "type": "string", "description": "Filter by category" },
+          "status": { "type": "string", "description": "Filter by status" }
+        },
+        "required": []
+      }
+    },
+    {
+      "name": "get_progress",
+      "description": "Get progress for a specific course",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "courseId": { "type": "string", "description": "Course ID" }
+        },
+        "required": ["courseId"]
+      }
+    }
+  ]
+}

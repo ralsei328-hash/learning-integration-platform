@@ -1,0 +1,60 @@
+{
+  "name": "browser-server",
+  "version": "1.0.0",
+  "description": "MCP server for browser automation and integration",
+  "command": "node",
+  "args": ["index.js"],
+  "env": {},
+  "tools": [
+    {
+      "name": "capture_session",
+      "description": "Capture the current browser session",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "url": { "type": "string", "description": "The URL to capture" },
+          "title": { "type": "string", "description": "The page title" },
+          "duration": { "type": "number", "description": "Time spent on page in seconds" }
+        },
+        "required": ["url"]
+      }
+    },
+    {
+      "name": "add_bookmark",
+      "description": "Add a bookmark",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "url": { "type": "string", "description": "URL to bookmark" },
+          "title": { "type": "string", "description": "Bookmark title" },
+          "category": { "type": "string", "description": "Bookmark category" },
+          "tags": { "type": "array", "description": "Bookmark tags" }
+        },
+        "required": ["url", "title"]
+      }
+    },
+    {
+      "name": "get_history",
+      "description": "Get browsing history",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "limit": { "type": "number", "description": "Maximum number of entries" },
+          "since": { "type": "string", "description": "ISO date string for filtering" }
+        },
+        "required": []
+      }
+    },
+    {
+      "name": "search_bookmarks",
+      "description": "Search bookmarks by query",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "query": { "type": "string", "description": "Search query" }
+        },
+        "required": ["query"]
+      }
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "platform": {
+    "name": "Learning Integration Platform",
+    "version": "1.0.0",
+    "description": "A centralized platform that integrates and connects various apps to streamline browsing, learning, and educational workflows using MCP"
+  },
+  "mcp": {
+    "serversPath": "./mcp-servers",
+    "configPath": "./config/mcp.json",
+    "autoDiscover": true,
+    "watchInterval": 30000
+  },
+  "browsing": {
+    "dataPath": "./data/browsing",
+    "captureHistory": true,
+    "captureBookmarks": true,
+    "captureSessions": true
+  },
+  "learning": {
+    "dataPath": "./data/learning",
+    "syncInterval": 300000,
+    "trackProgress": true,
+    "syncCourses": true
+  },
+  "apps": {
+    "telegram": {
+      "enabled": false,
+      "token": null
+    },
+    "gemini": {
+      "enabled": false,
+      "apiKey": null
+    }
+  },
+  "server": {
+    "port": 3000,
+    "host": "localhost"
+  },
+  "logging": {
+    "level": "INFO",
+    "format": "json"
+  }
+}

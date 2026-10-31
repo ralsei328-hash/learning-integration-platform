@@ -1,0 +1,37 @@
+{
+  "servers": [
+    {
+      "name": "filesystem-server",
+      "type": "local",
+      "path": "./mcp-servers/filesystem-server",
+      "command": "node",
+      "args": ["./mcp-servers/filesystem-server/index.js"],
+      "env": {},
+      "config": {
+        "allowedPaths": ["./data"]
+      }
+    },
+    {
+      "name": "browser-server",
+      "type": "local",
+      "path": "./mcp-servers/browser-server",
+      "command": "node",
+      "args": ["./mcp-servers/browser-server/index.js"],
+      "env": {},
+      "config": {
+        "browserType": "auto"
+      }
+    },
+    {
+      "name": "learning-server",
+      "type": "local",
+      "path": "./mcp-servers/learning-server",
+      "command": "node",
+      "args": ["./mcp-servers/learning-server/index.js"],
+      "env": {},
+      "config": {
+        "dataPath": "./data/learning"
+      }
+    }
+  ]
+}

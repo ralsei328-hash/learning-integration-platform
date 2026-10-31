@@ -1,0 +1,40 @@
+{
+  "name": "learning-integration-platform",
+  "version": "1.0.0",
+  "description": "A centralized platform that integrates and connects various apps to streamline browsing, learning, and educational workflows using MCP (Model Context Protocol)",
+  "main": "src/index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "node --watch src/index.js",
+    "mcp:discover": "node src/mcp/discovery.js",
+    "mcp:serve": "node src/mcp/server.js",
+    "browsing:capture": "node src/browsing/capture.js",
+    "learning:sync": "node src/learning/sync.js",
+    "apps:connect": "node src/apps/connect.js",
+    "test": "node --test src/**/*.test.js",
+    "lint": "node --check src/index.js"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "learning",
+    "education",
+    "browsing",
+    "integration",
+    "automation"
+  ],
+  "author": "Roo Developer",
+  "license": "MIT",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^0.4.0",
+    "express": "^4.21.0",
+    "axios": "^1.7.0",
+    "chokidar": "^3.6.0",
+    "dotenv": "^16.4.0",
+    "commander": "^12.1.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.0"
+  }
+}
